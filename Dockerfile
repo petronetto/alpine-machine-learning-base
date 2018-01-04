@@ -38,11 +38,8 @@ LABEL maintainer="Juliano Petronetto <juliano@petronetto.com.br>" \
       vendor="Petronetto DevTech" \
       version="1.0"
 
-RUN echo http://dl-cdn.alpinelinux.org/alpine/edge/main | tee /etc/apk/repositories \
-    && echo http://dl-cdn.alpinelinux.org/alpine/edge/testing | tee -a /etc/apk/repositories \
-    && echo http://dl-cdn.alpinelinux.org/alpine/edge/community | tee -a /etc/apk/repositories \
+RUN apk --update upgrade \
     && echo "|--> Install basics pre-requisites" \
-    && apk --update upgrade \
     && apk add --no-cache tini bash \
         curl ca-certificates python3 py3-numpy py3-numpy-f2py \
         freetype jpeg libpng libstdc++ libgomp graphviz font-noto \
