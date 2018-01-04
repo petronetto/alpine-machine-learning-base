@@ -54,7 +54,7 @@ RUN apk --update upgrade \
 ## Dev dependencies and others stuffs...
     && echo "|--> Install build dependencies" \
     && apk add --no-cache --virtual=.build-deps \
-        build-base linux-headers alpine-sdk python3-dev git cmake jpeg-dev \
+        build-base linux-headers python3-dev git cmake jpeg-dev \
         libffi-dev gfortran openblas-dev py-numpy-dev freetype-dev libpng-dev \
     && echo "|--> Install Python packages" \
     && pip install -U --no-cache-dir pyyaml pymkl cffi scikit-learn \
