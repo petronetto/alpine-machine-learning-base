@@ -42,7 +42,8 @@ RUN echo http://dl-cdn.alpinelinux.org/alpine/edge/main | tee /etc/apk/repositor
     && echo http://dl-cdn.alpinelinux.org/alpine/edge/testing | tee -a /etc/apk/repositories \
     && echo http://dl-cdn.alpinelinux.org/alpine/edge/community | tee -a /etc/apk/repositories \
     && echo "|--> Install basics pre-requisites" \
-    && apk add -U --no-cache tini bash \
+    && apk --update upgrade \
+    && apk add --no-cache tini bash \
         curl ca-certificates python3 py3-numpy py3-numpy-f2py \
         freetype jpeg libpng libstdc++ libgomp graphviz font-noto \
 ## Setup de basic requeriments
@@ -55,9 +56,9 @@ RUN echo http://dl-cdn.alpinelinux.org/alpine/edge/main | tee /etc/apk/repositor
     && ln -s locale.h /usr/include/xlocale.h \
 ## Dev dependencies and others stuffs...
     && echo "|--> Install build dependencies" \
-    && apk add -U --no-cache --virtual=.build-deps \
-        build-base linux-headers python3-dev git cmake jpeg-dev \
-        libffi-dev openblas-dev py-numpy-dev freetype-dev libpng-dev \
+    && apk add --no-cache --virtual=.build-deps \
+        build-base linux-headers alpine-sdk python3-dev git cmake jpeg-dev \
+        libffi-dev gfortran openblas-dev py-numpy-dev freetype-dev libpng-dev \
     && echo "|--> Install Python packages" \
     && pip install -U --no-cache-dir pyyaml pymkl cffi scikit-learn \
         matplotlib ipywidgets notebook requests pillow pandas seaborn \
