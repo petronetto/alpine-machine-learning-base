@@ -33,8 +33,8 @@ FROM alpine:3.6
 LABEL maintainer="Juliano Petronetto <juliano@petronetto.com.br>" \
       name="Python Alpine Builder" \
       description="Python Alpine Builder for Machine Learning/Deep Learning stuffs" \
-      url="https://hub.docker.com/r/petronetto/p3-builder" \
-      vcs-url="https://github.com/petronetto/p3-builder" \
+      url="https://hub.docker.com/r/petronetto/py3-builder" \
+      vcs-url="https://github.com/petronetto/py3-builder" \
       vendor="Petronetto DevTech" \
       version="1.0"
 
