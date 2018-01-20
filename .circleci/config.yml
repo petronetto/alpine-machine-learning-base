@@ -13,14 +13,14 @@ jobs:
       - run:
           name: Push the develop tag
           command: |
-            if [ "$ {CIRCLE_BRANCH}" == "develop" ]; then
+            if [ "${CIRCLE_BRANCH}" == "develop" ]; then
               docker tag petronetto/py3-builder petronetto/py3-builder:develop
               docker push petronetto/py3-builder:develop
             fi
       - run:
           name: Push the latest tag
           command: |
-            if [ "$ {CIRCLE_BRANCH}" == "master" ]; then
+            if [ "${CIRCLE_BRANCH}" == "master" ]; then
               docker tag petronetto/py3-builder petronetto/py3-builder:latest
               docker push petronetto/py3-builder:latest
             fi
