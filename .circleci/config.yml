@@ -5,27 +5,27 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Docker Build
-          command: |
-            TAG="${CIRCLE_BUILD_NUM}"
-            docker build -t petronetto/py3-builder:ci-$TAG .
-      - run:
-          name: Docker Images
-          command: |
-            docker images
-      - run:
           name: Docker Login
           command: docker login -u $DOCKER_HUB_USER_ID -p $DOCKER_HUB_PWD
       - run:
-          name: Docker send image to dockerhub
-          command: |
-            TAG="${CIRCLE_BUILD_NUM}"
-            docker push petronetto/py3-builder:ci-$TAG
+          name: Docker Build
+          command: docker build -t petronetto/py3-builder .
       - run:
-          name: Latest tag
+          name: Push the develop tag
           command: |
-            TAG="${CIRCLE_BUILD_NUM}"
-            docker tag petronetto/py3-builder:ci-$TAG petronetto/py3-builder:latest-ci
-            docker tag petronetto/py3-builder:ci-$TAG petronetto/py3-builder:latest
-            docker push petronetto/py3-builder:latest-ci
-            docker push petronetto/py3-builder:latest
+            if [ "$ {CIRCLE_BRANCH}" == "develop" ]; then
+              docker tag petronetto/py3-builder petronetto/py3-builder:develop
+              docker push petronetto/py3-builder:develop
+            fi
+      - run:
+          name: Push the develop tag
+          command: |
+            if [ "$ {CIRCLE_BRANCH}" == "master" ]; then
+              docker tag petronetto/py3-builder petronetto/py3-builder:latest
+              docker push petronetto/py3-builder:latest
+            fi
+      - run:
+          name: Backup tag
+          command: |
+            docker tag petronetto/py3-builder petronetto/py3-builder:v-$CIRCLE_BUILD_NUM
+            docker push petronetto/py3-builder:v-$CIRCLE_BUILD_NUM
