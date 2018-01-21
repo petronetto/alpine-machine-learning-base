@@ -31,7 +31,7 @@ ___  ___           _     _
 [![GitHub issues](https://img.shields.io/github/issues/petronetto/alpine-machine-learning-base.svg)](https://github.com/petronetto/alpine-machine-learning-base/issues)
 [![GitHub license](https://img.shields.io/github/license/petronetto/alpine-machine-learning-base.svg)](https://raw.githubusercontent.com/petronetto/alpine-machine-learning-base/master/LICENSE)
 [![Twitter](https://img.shields.io/twitter/url/https/github.com/petronetto/alpine-machine-learning-base.svg?style=social)](https://twitter.com/intent/tweet?text=Wow:&url=https%3A%2F%2Fgithub.com%2Fpetronetto%2Falpine-machine-learning-base)
-
+[![CircleCI](https://circleci.com/gh/petronetto/alpine-machine-learning-base/tree/master.svg?style=svg)](https://circleci.com/gh/petronetto/alpine-machine-learning-base/tree/master)
 
 ----------------------------------------------------------------------------------------
 
