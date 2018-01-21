@@ -18,11 +18,16 @@ jobs:
               docker push petronetto/alpine-machine-learning-base:develop
             fi
       - run:
-          name: Push the latest tag
+          name: Push the latest tag and triggerging dependencie builds
           command: |
             if [ "${CIRCLE_BRANCH}" == "master" ]; then
               docker tag petronetto/alpine-machine-learning-base petronetto/alpine-machine-learning-base:latest
               docker push petronetto/alpine-machine-learning-base:latest
+              curl \
+                --header "Content-Type: application/json" \
+                --data '{}' \
+                --request POST \
+                https://circleci.com/api/v1.1/project/github/petronetto/pytorch-alpine/tree/master?circle-token=$PYTORCH_ALPINE_TOKEN
             fi
       - run:
           name: Backup tag
