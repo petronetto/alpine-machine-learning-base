@@ -56,7 +56,7 @@ RUN echo "|--> Updating" \
     && ln -s locale.h /usr/include/xlocale.h \
     && echo "|--> Install build dependencies" \
     && apk add --no-cache --virtual=.build-deps \
-        build-base linux-headers python3-dev git cmake jpeg-dev \
+        build-base linux-headers python3-dev git cmake jpeg-dev bash \
         libffi-dev gfortran openblas-dev py-numpy-dev freetype-dev libpng-dev \
     && echo "|--> Install Python packages" \
     && pip install -U --no-cache-dir pyyaml pymkl cffi scikit-learn \
