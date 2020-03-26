@@ -28,7 +28,7 @@
 # OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-FROM alpine:3.7
+FROM alpine:3.11
 
 LABEL maintainer="Juliano Petronetto <juliano@petronetto.com.br>" \
       name="Alpine Machine Learning Base Container" \
@@ -36,7 +36,7 @@ LABEL maintainer="Juliano Petronetto <juliano@petronetto.com.br>" \
       url="https://hub.docker.com/r/petronetto/alpine-machine-learning-base" \
       vcs-url="https://github.com/petronetto/alpine-machine-learning-base" \
       vendor="Petronetto DevTech" \
-      version="1.0"
+      version="1.1"
 
 RUN echo "|--> Updating" \
     && apk update && apk upgrade \
